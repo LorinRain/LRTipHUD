@@ -12,9 +12,9 @@ Usage
 ### Use Instance Method
     let hud = LRTipHUD()
     // Title
-    hud.hudTitle = "提示"
+    hud.hudTitle = "Tip"
     // Content
-    hud.hudText = "这也是一条提示"
+    hud.hudText = "this is another tip"
     // Dimbackground
     hud.hudIsDimBackground = true
     // AutoDismiss
