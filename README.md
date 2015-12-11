@@ -3,6 +3,10 @@
 
  ![image](https://github.com/LorinRain/LRTipHUD/raw/master/ScreenShots/LRTipHud.gif)
 
+Installation
+==============
+Drag file `LRTipHUD.swift` to your project
+
 Usage
 ==============
 
