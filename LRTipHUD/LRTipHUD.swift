@@ -219,11 +219,11 @@ class LRTipHUD: UIView {
         self.frame = CGRectMake(0, 0, SCREENWIDTH, SCREENHEIGHT)
         
         // 动画
-        let animation1 = CATransition()
-        animation1.duration = 0.5
-        animation1.type = kCATransitionReveal
+        let animation = CATransition()
+        animation.duration = 0.4
+        animation.type = kCATransitionReveal
         
-        self.layer.addAnimation(animation1, forKey: nil)
+        self.layer.addAnimation(animation, forKey: nil)
         
         self.addSubview(tipView)
         
