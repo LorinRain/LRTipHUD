@@ -55,8 +55,8 @@ class LRTipHUD: UIView {
     var hudBackgroundColor: UIColor = UIColor.whiteColor()
     
     // 蒙版背景
-    // Default is false
-    // 默认为否
+    // Default is false, when set to true, view will set async property to false, so that other actions can not responed
+    // 默认为否，当设置为true的时候，默认会将async设置为false，即在显示Hud的时候不能进行其他操作
     ///是否蒙版背景
     var hudIsDimBackground: Bool = false
     
@@ -107,6 +107,12 @@ class LRTipHUD: UIView {
     // 仅当hudIsAutoDismiss设置为true的时候有效，默认1.5秒
     ///自动消失时限
     var hudAutoDismissTime: Double = 1.5
+    
+    // hud显示的是否异步显示（）
+    // Default is true
+    // 默认异步显示（显示hud的时候可进行其他操作）
+    ///是否异步显示
+    var hudIsAsync: Bool = true
     
     // MARK: - 私有方法
     /**
@@ -209,14 +215,26 @@ class LRTipHUD: UIView {
         tipView.addSubview(contentLabel)
         
         // 判断是否有蒙版背景
+        // 此处，当设置有蒙版背景的时候，async属性自动设置为false
         if self.hudIsDimBackground {
             self.backgroundColor = UIColor(white: 0, alpha: 0.3)
+            self.hudIsAsync = false
         } else {
             self.backgroundColor = UIColor.clearColor()
         }
         
-        // 设置自身尺寸
-        self.frame = CGRectMake(0, 0, SCREENWIDTH, SCREENHEIGHT)
+        // 判断是否阻塞主线程，根据是否阻塞主线程来设置自身尺寸
+        if self.hudIsAsync {
+            // 异步的话，视图的大小即为hud的大小
+            self.center = tipView.center
+            self.bounds = tipView.bounds
+            
+            // 重新计算tipView的位置
+            tipView.frame = CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height)
+        } else {
+            // 非异步，则视图为全屏
+            self.frame = CGRectMake(0, 0, SCREENWIDTH, SCREENHEIGHT)
+        }
         
         // 动画
         let animation = CATransition()
@@ -241,6 +259,13 @@ class LRTipHUD: UIView {
     func show() {
         // 拿到keywindow
         let window = UIApplication.sharedApplication().keyWindow
+        // 加入异步操作之后，如果界面已显示hud，用户再次出发显示hud的操作的时候，可能会导致前一个显示的hud还没有移除而造成重复添加，所以在显示之前判断界面是否已经有hud，如果有，则移除之前的hud并立即显示当前操作触发的hud
+        for temp in (window?.subviews)! {
+            if let hud: LRTipHUD = temp as? LRTipHUD {
+                hud.removeFromSuperview()
+            }
+        }
+        
         window?.addSubview(self.initHud())
         
         // 判断是否自动消失
@@ -266,7 +291,7 @@ class LRTipHUD: UIView {
         hud.hudText = tips
         hud.hudIsAutoDismiss = true
         hud.hudAutoDismissTime = time
-        hud.hudIsDimBackground = true
+        hud.hudIsDimBackground = dim
         hud.show()
     }
     

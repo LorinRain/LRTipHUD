@@ -32,12 +32,21 @@
                                     <action selector="buttonAction2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LIh-4W-xfh"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fUN-wI-vE8" userLabel="AsyncBtn">
+                                <rect key="frame" x="95" y="518" width="93" height="30"/>
+                                <state key="normal" title="HUD外面按钮"/>
+                                <connections>
+                                    <action selector="asyncBtnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lho-n8-xuv"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="fUN-wI-vE8" firstAttribute="centerX" secondItem="9Hd-Sx-TZM" secondAttribute="centerX" id="1p5-Cx-5qv"/>
                             <constraint firstItem="9Hd-Sx-TZM" firstAttribute="top" secondItem="Mu2-pK-Dm1" secondAttribute="bottom" constant="38" id="JMb-q6-P60"/>
                             <constraint firstItem="Mu2-pK-Dm1" firstAttribute="centerX" secondItem="9Hd-Sx-TZM" secondAttribute="centerX" id="KgX-8y-Asm"/>
                             <constraint firstItem="Mu2-pK-Dm1" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="133" id="etm-cn-HFx"/>
+                            <constraint firstAttribute="bottom" secondItem="fUN-wI-vE8" secondAttribute="bottom" constant="20" symbolic="YES" id="iDd-qo-zzK"/>
                             <constraint firstItem="9Hd-Sx-TZM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="91" id="u3M-yH-pNq"/>
                         </constraints>
                     </view>
