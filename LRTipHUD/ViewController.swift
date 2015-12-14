@@ -35,7 +35,6 @@ class ViewController: UIViewController {
         hud.hudIsAutoDismiss = true
         // 自动消失时间
         hud.hudAutoDismissTime = 2
-        //
         // 显示
         hud.show()
     }

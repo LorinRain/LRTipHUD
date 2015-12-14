@@ -114,6 +114,18 @@ class LRTipHUD: UIView {
     ///是否异步显示
     var hudIsAsync: Bool = true
     
+    // 竖直方向偏移量
+    // Default is 0
+    // 默认为0
+    ///竖直方向偏移量
+    var hudYOffSet: CGFloat = 0
+    
+    // 水平方向偏移量
+    // Default is 0
+    // 默认为0
+    ///水平方向偏移量
+    var hudXOffSet: CGFloat = 0
+    
     // MARK: - 私有方法
     /**
     * Private Method Part
@@ -166,7 +178,7 @@ class LRTipHUD: UIView {
     private func initHud() -> UIView {
         // 1.计算视图尺寸
         let tipView = UIView()
-        tipView.center = CGPointMake(SCREENWIDTH*0.5, SCREENHEIGHT*0.5)
+        tipView.center = CGPointMake(SCREENWIDTH*0.5 + self.hudXOffSet, SCREENHEIGHT*0.5 + self.hudYOffSet)
         tipView.bounds = CGRectMake(0, 0, self.caculateWidth(self.hudTitle, tips: self.hudText), self.caculateHeight(self.hudTitle, tips: self.hudText))
         
         // 设置视图背景颜色
