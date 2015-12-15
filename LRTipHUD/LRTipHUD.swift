@@ -48,82 +48,82 @@ class LRTipHUD: UIView {
     * Puvlic API Part
     * 开放api
     */
-    // hud颜色
-    // Default is false
-    // 默认为白色
-    ///hud颜色
+    /** hud颜色
+    * Default is whiteColor
+    * 默认为白色
+    */
     var hudBackgroundColor: UIColor = UIColor.whiteColor()
     
-    // 蒙版背景
-    // Default is false, when set to true, view will set async property to false, so that other actions can not responed
-    // 默认为否，当设置为true的时候，默认会将async设置为false，即在显示Hud的时候不能进行其他操作
-    ///是否蒙版背景
+    /** 是否蒙版背景
+    * Default is false, when set to true, view will set async property to false, so that other actions can not responed
+    * 默认为否，当设置为true的时候，默认会将async设置为false，即在显示Hud的时候不能进行其他操作
+    */
     var hudIsDimBackground: Bool = false
     
-    // 显示标题
-    // Default is nil
-    // 默认为空
-    ///标题
+    /** 标题
+    * Default is nil
+    * 默认为空
+    */
     var hudTitle: String? = nil
     
-    // 显示提示内容
-    // can not be nil
-    // 不能为空
-    ///提示内容
+    /** 提示内容
+    * can not be nil
+    * 不能为空
+    */
     var hudText: String = ""
     
-    // 是否圆角
-    // Default is true
-    // 默认为圆角
-    ///是否圆角
+    /** 是否圆角
+    * Default is true
+    * 默认为圆角
+    */
     var hudIsFillet: Bool = true
     
-    // 圆角角度
-    // Only work when hudIsFillet is true, default is 5
-    // 仅当hudIsFillet为真的时候设置有效，默认为5
-    ///圆角角度
+    /** 圆角角度，仅当hudIsFillet属性为true的情况下有效
+    * Only work when hudIsFillet is true, defaut is 5
+    * 默认为5
+    */
     var hudCornerRadius: CGFloat = 5
     
-    // 标题颜色
-    // Default is black
-    // 默认是黑色
-    ///标题颜色
+    /** 标题颜色
+    * Default is blackColor
+    s* 默认为黑色
+    */
     var hudTitleColor: UIColor = UIColor.blackColor()
     
-    // 内容颜色
-    // Default is black
-    // 默认为黑色
-    ///内容颜色
+    /** 内容颜色
+    * Default is black
+    * 默认是黑色
+    */
     var hudTextColor: UIColor = UIColor.blackColor()
     
-    // 自动消失
-    // Default is false
-    // 默认为否
-    ///是否自动消失
+    /** 是否自动消失
+    * Default is false
+    * 默认为否
+    */
     var hudIsAutoDismiss: Bool = false
     
-    // 自动消失时限
-    // Only work when hudIsAutoDismiss is true, default is 1.5
-    // 仅当hudIsAutoDismiss设置为true的时候有效，默认1.5秒
-    ///自动消失时限
+    /** 自动消失时间，仅当hudIsAutoDismiss属性为true的情况下有效
+    * Only work when hudIsAutoDismiss is true, default is 1.5
+    * 默认为1.5秒
+    */
     var hudAutoDismissTime: Double = 1.5
     
-    // hud显示的是否异步显示（）
-    // Default is true
-    // 默认异步显示（显示hud的时候可进行其他操作）
-    ///是否异步显示
+    /** 显示时能否进行其他操作
+    * Default is true
+    * 默认为可以进行其他操作
+    */
     var hudIsAsync: Bool = true
     
-    // 竖直方向偏移量
-    // Default is 0
-    // 默认为0
-    ///竖直方向偏移量
+    /** 竖直方向偏移量
+    * Default is 0
+    * 默认为0
+    */
     var hudYOffSet: CGFloat = 0
     
-    // 水平方向偏移量
-    // Default is 0
-    // 默认为0
-    ///水平方向偏移量
+    /** 水平方向偏移量
+    * Default is 0
+    * 默认为0
+    */
     var hudXOffSet: CGFloat = 0
     
     // MARK: - 私有方法
