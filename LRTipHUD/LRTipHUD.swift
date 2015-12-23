@@ -235,9 +235,9 @@ class LRTipHUD: UIView {
             self.backgroundColor = UIColor.clearColor()
         }
         
-        // 判断是否阻塞主线程，根据是否阻塞主线程来设置自身尺寸
+        // 判断在显示hud的时候是否能进行其他操作，根据是否能进行其他操作来设置自身尺寸
         if self.hudIsAsync {
-            // 异步的话，视图的大小即为hud的大小
+            // 可以的话，视图的大小即为hud的大小
             self.center = tipView.center
             self.bounds = tipView.bounds
             
@@ -296,7 +296,14 @@ class LRTipHUD: UIView {
     }
     
     // MARK: 类方法
-    ///快速显示hud
+    /**
+    快速显示hud
+    
+    - parameter title: 标题
+    - parameter tips:  内容
+    - parameter time:  自动消失时间（默认自动消失）
+    - parameter dim:   是否蒙版背景
+    */
     class func showTip(title: String?, tips: String, withTimeInterval time: Double, dimBack dim: Bool) {
         let hud = LRTipHUD()
         hud.hudTitle = title
@@ -307,11 +314,13 @@ class LRTipHUD: UIView {
         hud.show()
     }
     
-    ///移除所有hud
+    /**
+     移除所有hud
+     */
     class func hideAllHUD() {
         let window = UIApplication.sharedApplication().keyWindow
         for temp in (window?.subviews)! {
-            if temp.isKindOfClass(LRTipHUD) {
+            if temp is LRTipHUD {
                 temp.removeFromSuperview()
             }
         }
