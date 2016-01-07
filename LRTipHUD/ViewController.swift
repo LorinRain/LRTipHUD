@@ -26,7 +26,7 @@ class ViewController: UIViewController {
     @IBAction func buttonAction2(sender: UIButton) {
         let hud = LRTipHUD()
         // 标题
-        hud.hudTitle = "提示"
+        hud.hudTitle = ""
         // 内容
         hud.hudText = "这也是一条提示，这条提示显示的时候不能进行其他操作"
         // 设置非异步

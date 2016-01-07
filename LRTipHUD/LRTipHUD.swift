@@ -167,7 +167,7 @@ class LRTipHUD: UIView {
     ///计算视图高度
     private func caculateHeight(title: String?, tips: String) -> CGFloat {
         
-        if title == nil {
+        if title == nil || title == "" {
             return (caculateContentSize(tips).height + CONTENTBOTTOMMARGIN*2)
         } else {
             return (caculateTitleSize(title!).height + TITLETOPMARGIN + TITLECONTENTMARGIN + caculateContentSize(tips).height + CONTENTBOTTOMMARGIN)
@@ -191,7 +191,7 @@ class LRTipHUD: UIView {
         }
         
         // 2.添加标题
-        if self.hudTitle != nil {
+        if self.hudTitle != nil && self.hudTitle != "" {
             let titleLabel = UILabel()
             titleLabel.frame = CGRectMake(TEXTVIEWMARGIN, TITLETOPMARGIN, tipView.bounds.size.width - TEXTVIEWMARGIN*2, caculateTitleSize(self.hudTitle!).height)
             
@@ -208,7 +208,7 @@ class LRTipHUD: UIView {
         ///内容的top
         let contenOriginY: CGFloat
         
-        if self.hudTitle == nil {
+        if self.hudTitle == nil || self.hudTitle == "" {
             contenOriginY = CONTENTBOTTOMMARGIN
         } else {
             contenOriginY = TITLETOPMARGIN + caculateTitleSize(self.hudTitle!).height + TITLECONTENTMARGIN
