@@ -15,15 +15,15 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
     
-    @IBAction func buttonAction1(sender: UIButton) {
-        LRTipHUD.showTip("提示", tips: "这是一条提示，这条提示显示的时候可以进行其他操作", withTimeInterval: 2, dimBack: false)
+    @IBAction func buttonAction1(_ sender: UIButton) {
+        LRTipHUD.showTip(title: "提示", tips: "这是一条提示，这条提示显示的时候可以进行其他操作", withTimeInterval: 2, dimBack: false)
     }
     
-    @IBAction func buttonAction2(sender: UIButton) {
+    @IBAction func buttonAction2(_ sender: UIButton) {
         let hud = LRTipHUD()
         // 标题
         hud.hudTitle = ""
@@ -31,8 +31,6 @@ class ViewController: UIViewController {
         hud.hudText = "这也是一条提示，这条提示显示的时候不能进行其他操作"
         // 设置非异步
         hud.hudIsAsync = false
-        // 自动消失
-        hud.hudIsAutoDismiss = true
         // 自动消失时间
         hud.hudAutoDismissTime = 2
         // 显示
@@ -40,8 +38,8 @@ class ViewController: UIViewController {
     }
     
     // hud显示范围外面的按钮点击事件（用以测试Hud显示的时候能否进行其他操作）
-    @IBAction func asyncBtnAction(sender: UIButton) {
-        print("Async button clicked")
+    @IBAction func asyncBtnAction(_ sender: UIButton) {
+        print("async button clicked")
     }
     
     
